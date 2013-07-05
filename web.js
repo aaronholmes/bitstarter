@@ -6,7 +6,7 @@ var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
   // Read in index.html
   // output
-  var filename = index.html
+  var filename = "index.html"
   fs.readFile('filename', function (err, data) {
     if (err) throw err;
     response.send(data);
