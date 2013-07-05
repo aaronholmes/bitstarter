@@ -4,15 +4,14 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  // Read in index.html
-  // output
   var filename = __dirname + "/index.html";
   fs.readFile(filename, 'utf8', function (err,data) {
-  if (err) {
-    return response.send(err);
-  }
-  response.send(data);
-});
+    if (err) {
+      return response.send(err);
+    }
+    var buffer = new Buffer(data);
+    response.send(buffer.toString());
+  });
 });
 
 var port = process.env.PORT || 5000;
