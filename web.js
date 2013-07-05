@@ -7,10 +7,14 @@ app.get('/', function(request, response) {
   // Read in index.html
   // output
   var filename = "index.html"
-  fs.readFile('filename', function (err, data) {
+  var buffer = ''; 
+
+ fs.readFile(filename, function (err, data) {
     if (err) throw err;
-    response.send(data);
+    buffer = new Buffer(data, "utf-8")
   });
+
+  response.send(buffer.toString('utf-8'));
 });
 
 var port = process.env.PORT || 5000;
