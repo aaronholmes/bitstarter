@@ -7,12 +7,11 @@ app.get('/', function(request, response) {
   // Read in index.html
   // output
   var filename = "/home/ubuntu/projects/bitstarter/index.html"
-  var buffer = ''; 
-  console.log("test");
   response.send("test2");
  fs.readFile(filename, function (err, data) {
     if (err) throw err;
-    buffer = new Buffer(data, "utf-8")
+   var  buffer = new Buffer(data, "utf-8");
+   response.send(buffer.toString());
   });
 
   response.send(buffer.toString('utf-8'));
