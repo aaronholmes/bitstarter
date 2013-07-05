@@ -7,7 +7,7 @@ app.get('/', function(request, response) {
   // Read in index.html
   // output
   var filename = "/home/ubuntu/projects/bitstarter/index.html";
-  fs.readFile('/doesnt/exist', 'utf8', function (err,data) {
+  fs.readFile(filename, 'utf8', function (err,data) {
   if (err) {
     return response.send(err);
   }
