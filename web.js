@@ -6,15 +6,13 @@ var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
   // Read in index.html
   // output
-  var filename = "/home/ubuntu/projects/bitstarter/index.html"
-  response.send("test2");
- fs.readFile(filename, function (err, data) {
-    if (err) throw err;
-   var  buffer = new Buffer(data, "utf-8");
-   response.send(buffer.toString());
-  });
-
-  response.send(buffer.toString('utf-8'));
+  var filename = "/home/ubuntu/projects/bitstarter/index.html";
+  fs.readFile('/doesnt/exist', 'utf8', function (err,data) {
+  if (err) {
+    return response.send(err);
+  }
+  response.send(data);
+});
 });
 
 var port = process.env.PORT || 5000;
